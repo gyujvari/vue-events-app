@@ -1,39 +1,35 @@
 <template>
   <div>
     <pre>
-      {{ data }}
+      {{ events }}
     </pre>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
-import axios from "axios";
+import { onMounted, computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "EventsComponent",
-  props: {
-    events: String,
-  },
 
   setup() {
-    const data = ref();
+    const store = useStore();
+
+    const events = computed(() => {
+      return store.getters.getData;
+    });
 
     onMounted(() => {
       getData();
     });
 
-    const getData = async () => {
-      await axios
-        .get("https://simple-events-api.onrender.com/events")
-        .then((response) => {
-          data.value = response.data;
-          console.log(response, "response");
-        });
+    const getData = () => {
+      store.dispatch("getData");
     };
 
     return {
-      data,
+      events,
     };
   },
 };
