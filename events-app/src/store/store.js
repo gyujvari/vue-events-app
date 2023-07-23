@@ -15,7 +15,13 @@ export default createStore({
       await axios
         .get("https://simple-events-api.onrender.com/events")
         .then((response) => {
-          commit("setData", response.data);
+          const newArray = response.data.map((item, index) => {
+            return {
+              index: index,
+              value: item,
+            };
+          });
+          commit("setData", newArray);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
