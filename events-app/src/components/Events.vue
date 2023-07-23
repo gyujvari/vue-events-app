@@ -152,5 +152,9 @@ export default {
     width: 100%;
     border-right: 5px solid #000000;
   }
+
+  .talent-box:last-child {
+    border-right: 0px;
+  }
 }
 </style>
