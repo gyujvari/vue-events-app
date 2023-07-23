@@ -1,30 +1,36 @@
 <template>
-  <div class="body" v-if="isLoaded">
+  <div class="body">
     <div class="btn-container">
       <button class="btn" v-if="isToggled" @click="hide()">Hide</button>
       <button class="btn" v-else @click="randomize()">Show</button>
     </div>
-
-    <div v-if="isToggled && selectedItem" class="card">
-      <div
-        :style="{
-          backgroundColor: `${selectedItem[0].value.color}`,
-        }"
-        class="parent"
-      >
-        <div class="event-items">
-          {{ selectedItem[0].value.name }}
-        </div>
-        <div class="event-items" style="background-color: white">
-          {{ selectedItem[0].value.from }} - {{ selectedItem[0].value.to }}
-        </div>
-        <div class="event-items">
+    <div v-show="isToggled">
+      <div class="card">
+        <div
+          v-if="selectedItem"
+          :style="{
+            backgroundColor: `${selectedItem[0].value.color}`,
+          }"
+          class="parent"
+        >
+          <div v-if="selectedItem" class="event-items">
+            {{ selectedItem[0].value.name }}
+          </div>
           <div
-            class="talent-box"
-            v-for="(talent, index) in selectedItem[0].value.talent"
-            :key="index"
+            v-if="selectedItem"
+            class="event-items"
+            style="background-color: white"
           >
-            {{ talent }}
+            {{ selectedItem[0].value.from }} - {{ selectedItem[0].value.to }}
+          </div>
+          <div v-if="selectedItem" class="event-items">
+            <div
+              class="talent-box"
+              v-for="(talent, index) in selectedItem[0].value.talent"
+              :key="index"
+            >
+              {{ talent }}
+            </div>
           </div>
         </div>
       </div>
@@ -56,7 +62,7 @@ export default {
 
     onMounted(async () => {
       getData();
-      animate();
+      animateButton();
     });
 
     const getData = () => {
@@ -65,20 +71,31 @@ export default {
 
     const randomize = () => {
       isToggled.value = true;
+
       count.value = Math.floor(Math.random() * 3);
       selectedItem.value = events.value.filter(
         (item) => item.index === count.value
       );
-      animate();
+      if (selectedItem.value && isToggled.value == true) {
+        animateCard();
+      }
     };
 
-    const animate = async () => {
-      await anime({
+    const animateButton = () => {
+      anime({
         targets: ".btn",
-        duration: 150,
-        autoplay: true,
+        duration: 1500,
         elasticity: 400,
-        width: 200,
+        width: 120,
+      });
+    };
+
+    const animateCard = () => {
+      anime({
+        targets: ".card",
+        duration: 1500,
+        elasticity: 800,
+        width: 900,
       });
     };
 
@@ -113,6 +130,7 @@ export default {
   width: 80vw;
   padding: 5px;
   border-radius: 15px;
+  transition: opacity 0.5s;
 }
 
 .parent {
@@ -194,6 +212,6 @@ export default {
   display: inline-block;
   min-height: 28px;
   transition: background-color 0.24s, box-shadow 0.24s;
-  margin-left: 90%;
+  margin-left: 70%;
 }
 </style>
