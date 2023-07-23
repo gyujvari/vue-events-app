@@ -85,4 +85,35 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card {
+  background: #fff;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 51px;
+  height: 20vw;
+  width: 80vw;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 2fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  border-radius: 10px;
+  height: 100%;
+}
+// .body {
+//   width: 1920px;
+//   height: 950px;
+//   display: flex;
+//   align-content: center;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+// }
+</style>
