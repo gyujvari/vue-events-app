@@ -142,5 +142,15 @@ export default {
   font-size: 20px;
   border: 5px solid #000000;
   border-radius: 0px 0px 10px 10px;
+
+  .talent-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-right: 5px solid #000000;
+  }
 }
 </style>
