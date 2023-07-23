@@ -4,10 +4,14 @@ import axios from "axios";
 export default createStore({
   state: {
     events: [],
+    isLoaded: false,
   },
   mutations: {
     setData(state, events) {
       state.events = events;
+    },
+    setLoaded(state, isLoaded) {
+      state.isLoaded = isLoaded;
     },
   },
   actions: {
@@ -22,6 +26,7 @@ export default createStore({
             };
           });
           commit("setData", newArray);
+          commit("setLoaded", true);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
@@ -31,6 +36,9 @@ export default createStore({
   getters: {
     getData(state) {
       return state.events;
+    },
+    getIsLoaded(state) {
+      return state.isLoaded;
     },
   },
 });

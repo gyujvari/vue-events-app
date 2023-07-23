@@ -1,12 +1,34 @@
 <template>
-  <div>
+  <div v-if="isLoaded">
     <div class="btn-container">
       <button v-if="isToggled" @click="hide()">Hide</button>
       <button v-else @click="randomize()">Show</button>
     </div>
-    <pre v-if="isToggled">
-      {{ selectedItem }}
-    </pre>
+
+    <div v-if="isToggled && selectedItem" class="card">
+      <div
+        :style="{
+          backgroundColor: `${selectedItem[0].value.color}`,
+        }"
+        class="parent"
+      >
+        <div class="event-items">
+          {{ selectedItem[0].value.name }}
+        </div>
+        <div class="event-items" style="background-color: white">
+          {{ selectedItem[0].value.from }} - {{ selectedItem[0].value.to }}
+        </div>
+        <div class="event-items">
+          <div
+            class="talent-box"
+            v-for="(talent, index) in selectedItem[0].value.talent"
+            :key="index"
+          >
+            {{ talent }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,6 +47,10 @@ export default {
 
     const events = computed(() => {
       return store.getters.getData;
+    });
+
+    const isLoaded = computed(() => {
+      return store.getters.getIsLoaded;
     });
 
     onMounted(() => {
@@ -53,6 +79,7 @@ export default {
       selectedItem,
       isToggled,
       hide,
+      isLoaded,
     };
   },
 };
