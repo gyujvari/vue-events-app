@@ -123,17 +123,18 @@ export default {
   font-weight: 800;
   text-shadow: 4px 3px 0 #000000;
   font-size: 30px;
-  border: 5px solid #000000;
-  border-radius: 15px 10px 0px 0px;
+  border: 10px solid #000000;
+  border-radius: 15px 15px 0px 0px;
 }
 
 .event-items:nth-child(2) {
   font-size: 20px;
   display: flex;
   justify-content: center;
-  border-right: 5px solid #000000;
-  border-left: 5px solid #000000;
+  border-right: 10px solid #000000;
+  border-left: 10px solid #000000;
   align-items: center;
+  font-weight: 500;
 }
 
 .event-items:nth-child(3) {
@@ -145,8 +146,8 @@ export default {
   font-weight: 800;
   text-shadow: 4px 3px 0 #000000;
   font-size: 30px;
-  border: 5px solid #000000;
-  border-radius: 0px 0px 10px 10px;
+  border: 10px solid #000000;
+  border-radius: 0px 0px 15px 15px;
 
   .talent-box {
     display: flex;
@@ -155,7 +156,7 @@ export default {
     justify-content: center;
     height: 100%;
     width: 100%;
-    border-right: 5px solid #000000;
+    border-right: 10px solid #000000;
   }
 
   .talent-box:last-child {
