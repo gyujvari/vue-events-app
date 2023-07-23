@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoaded">
+  <div class="body" v-if="isLoaded">
     <div class="btn-container">
       <button v-if="isToggled" @click="hide()">Hide</button>
       <button v-else @click="randomize()">Show</button>
@@ -85,4 +85,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
