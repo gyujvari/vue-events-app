@@ -35,6 +35,7 @@
 <script>
 import { ref, onMounted, computed } from "vue";
 import { useStore } from "vuex";
+import anime from "animejs/lib/anime.es.js";
 
 export default {
   name: "EventsComponent",
@@ -53,8 +54,9 @@ export default {
       return store.getters.getIsLoaded;
     });
 
-    onMounted(() => {
+    onMounted(async () => {
       getData();
+      animate();
     });
 
     const getData = () => {
@@ -67,6 +69,17 @@ export default {
       selectedItem.value = events.value.filter(
         (item) => item.index === count.value
       );
+      animate();
+    };
+
+    const animate = async () => {
+      await anime({
+        targets: ".btn",
+        duration: 150,
+        autoplay: true,
+        elasticity: 400,
+        width: 200,
+      });
     };
 
     const hide = () => {
