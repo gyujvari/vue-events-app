@@ -87,15 +87,19 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  background: #fff;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
-    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 51px;
   height: 20vw;
   width: 80vw;
+  padding: 5px;
+  border-radius: 15px;
 }
 
 .parent {
@@ -104,7 +108,7 @@ export default {
   grid-template-rows: 2fr 1fr 2fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  border-radius: 10px;
+  border-radius: 15px;
   height: 100%;
 }
 
@@ -118,9 +122,9 @@ export default {
   color: #ffffff;
   font-weight: 800;
   text-shadow: 4px 3px 0 #000000;
-  font-size: 20px;
+  font-size: 30px;
   border: 5px solid #000000;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 15px 10px 0px 0px;
 }
 
 .event-items:nth-child(2) {
@@ -129,6 +133,7 @@ export default {
   justify-content: center;
   border-right: 5px solid #000000;
   border-left: 5px solid #000000;
+  align-items: center;
 }
 
 .event-items:nth-child(3) {
@@ -139,7 +144,7 @@ export default {
   color: #ffffff;
   font-weight: 800;
   text-shadow: 4px 3px 0 #000000;
-  font-size: 20px;
+  font-size: 30px;
   border: 5px solid #000000;
   border-radius: 0px 0px 10px 10px;
 
@@ -155,6 +160,10 @@ export default {
 
   .talent-box:last-child {
     border-right: 0px;
+  }
+
+  .btn-container {
+    align-self: flex-end;
   }
 }
 </style>
