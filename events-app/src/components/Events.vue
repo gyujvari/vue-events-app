@@ -107,13 +107,40 @@ export default {
   border-radius: 10px;
   height: 100%;
 }
-// .body {
-//   width: 1920px;
-//   height: 950px;
-//   display: flex;
-//   align-content: center;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: center;
-// }
+
+.event-items:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 4px 3px 0 #000000;
+  font-size: 20px;
+  border: 5px solid #000000;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.event-items:nth-child(2) {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  border-right: 5px solid #000000;
+  border-left: 5px solid #000000;
+}
+
+.event-items:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 4px 3px 0 #000000;
+  font-size: 20px;
+  border: 5px solid #000000;
+  border-radius: 0px 0px 10px 10px;
+}
 </style>
