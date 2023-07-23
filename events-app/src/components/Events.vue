@@ -1,8 +1,8 @@
 <template>
   <div class="body" v-if="isLoaded">
     <div class="btn-container">
-      <button v-if="isToggled" @click="hide()">Hide</button>
-      <button v-else @click="randomize()">Show</button>
+      <button class="btn" v-if="isToggled" @click="hide()">Hide</button>
+      <button class="btn" v-else @click="randomize()">Show</button>
     </div>
 
     <div v-if="isToggled && selectedItem" class="card">
@@ -166,5 +166,21 @@ export default {
   .btn-container {
     align-self: flex-end;
   }
+}
+
+.btn {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(25, 49, 168);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  min-height: 28px;
+  transition: background-color 0.24s, box-shadow 0.24s;
+  margin-left: 90%;
 }
 </style>
