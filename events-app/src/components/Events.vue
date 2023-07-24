@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div v-if="isLoaded" class="body">
     <div class="btn-container">
       <button class="btn" v-if="isToggled" @click="hide()">Hide</button>
       <button class="btn" v-else @click="randomize()">Show</button>
@@ -60,7 +60,7 @@ export default {
       return store.getters.getIsLoaded;
     });
 
-    onMounted(async () => {
+    onMounted(() => {
       getData();
       animateButton();
     });
